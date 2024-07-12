@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmDeleteButton = document.getElementById('confirmDelete');
     const cancelDeleteButton = document.getElementById('cancelDelete');
 
-    // Fonction pour ajouter une tâche à la liste avec des boutons
     function addTaskToList(task) {
         const li = document.createElement('li');
         li.textContent = task;
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         checkButton.textContent = '✓';
         checkButton.classList.add('checkButton');
         checkButton.addEventListener('click', function() {
-            li.classList.toggle('checked'); // Barrer le texte en cliquant sur le bouton
+            li.classList.toggle('checked'); 
         });
         li.appendChild(checkButton);
 
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         deleteButton.textContent = '✗';
         deleteButton.classList.add('deleteButton');
         deleteButton.addEventListener('click', function() {
-            li.remove(); // Supprimer la tâche de la liste
+            li.remove();
             chrome.storage.local.get({ tasks: [] }, function(result) {
                 const tasks = result.tasks.filter(t => t !== task);
                 chrome.storage.local.set({ tasks: tasks }, function() {
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         taskList.appendChild(li);
     }
 
-    // Fonction pour stocker la valeur de l'input
     saveButton.addEventListener('click', function() {
         const inputValue = textInput.value;
         if (inputValue) {
@@ -47,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 tasks.push(inputValue);
                 chrome.storage.local.set({ tasks: tasks }, function() {
                     console.log('Le texte a été stocké:', inputValue);
-                    addTaskToList(inputValue); // Ajouter la tâche à la liste
-                    textInput.value = ''; // Effacer l'input après l'enregistrement
+                    addTaskToList(inputValue); 
+                    textInput.value = ''; 
                 });
             });
         } else {
@@ -56,34 +54,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Fonction pour afficher les tâches stockées
     loadButton.addEventListener('click', function() {
-        taskList.innerHTML = ''; // Effacer la liste actuelle
+        taskList.innerHTML = ''; 
         chrome.storage.local.get(['tasks'], function(result) {
             const tasks = result.tasks || [];
             tasks.forEach(function(task) {
-                addTaskToList(task); // Ajouter chaque tâche à la liste
+                addTaskToList(task); 
             });
             console.log('Les tâches ont été chargées:', tasks);
         });
     });
 
-    // Écouteur d'événement pour le bouton "Effacer les tâches"
     clearButton.addEventListener('click', function() {
-        confirmationPopup.style.display = 'block'; // Afficher le popup de confirmation
+        confirmationPopup.style.display = 'block'; 
     });
 
-    // Écouteur d'événement pour le bouton "Confirmer" dans le popup de confirmation
     confirmDeleteButton.addEventListener('click', function() {
-        taskList.innerHTML = ''; // Efface toutes les tâches de l'interface
+        taskList.innerHTML = ''; 
         chrome.storage.local.set({ tasks: [] }, function() {
             console.log('Toutes les tâches ont été supprimées.');
         });
-        confirmationPopup.style.display = 'none'; // Cacher le popup de confirmation
+        confirmationPopup.style.display = 'none'; 
     });
 
-    // Écouteur d'événement pour le bouton "Annuler" dans le popup de confirmation
     cancelDeleteButton.addEventListener('click', function() {
-        confirmationPopup.style.display = 'none'; // Cacher le popup de confirmation
+        confirmationPopup.style.display = 'none'; 
     });
 });
