@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "TodoList",
+    "version": "1.0",
+    "description": "This extension will help you to manage your daily tasks.",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage"
+    ],
+    "action": {
+        "default_icon": {
+            "64": "public/images/post-it.png",
+            "32": "public/images/post-it.png"
+        },
+        "default_popup": "public/index.html"
+    },
+    "icons": {
+        "64": "public/images/post-it.png"
+    }
+}

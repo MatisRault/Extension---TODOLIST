@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1 class="titre">Liste de choses à faire</h1>
+        <div class="items">
+            <input type="text" name="item" id="item" placeholder="Ecrire une tâche...">
+            <button id="Valider" type="submit">✓</button>
+        </div>
+        <button id="Afficher" type="button">Afficher les tâches</button>
+
+        <ul id="taskList"></ul>
+
+        <button id="Effacer" type="button">Effacer les tâches</button>
+
+        <div id="confirmationPopup" class="popup">
+            <div class="popup-content">
+                <p>Êtes-vous sûr de vouloir effacer toutes les tâches ?</p>
+                <div class="popup-buttons">
+                    <button id="confirmDelete">Confirmer</button>
+                    <button id="cancelDelete">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

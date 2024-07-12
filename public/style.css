@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #ffffff;
+    color: #4e4e4e;
+}
+
+.container {
+    width: 100%; 
+    width: 20rem;
+    margin: 0 auto;
+    padding: 10px; /* Ajoute un peu de padding pour l'espace autour du contenu */
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 1.5rem; /* Taille de police légèrement plus grande pour le titre */
+    margin-bottom: 10px; /* Ajoute un peu d'espace sous le titre */
+    text-align: center;
+}  
+.items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#item::placeholder{
+    color: #4e4e4e;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+
+}
+
+#item{
+    width: 70%;
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #4e4e4e;
+    border-radius: 5px;
+}
+#Valider{
+    width: 18%;
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #4e4e4e;
+    border-radius: 5px;
+    background-color: #4e4e4e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-buttons {
+    margin-top: 10px;
+}
+
+.popup-buttons button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#Afficher{
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: transparent 1px;
+    text-decoration: underline;
+    background-color: transparent;
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+#Effacer{
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: transparent 1px;
+    text-decoration: underline;
+    background-color: transparent;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.montserrat-bold {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold; /* Assurez-vous que cette classe s'applique correctement */
+    font-style: normal;
+}
+
+li{
+    margin-top: 10px;
+    font-size: 15px;
+
+}
+
+li.checked {
+    text-decoration: line-through;
+}
+
+.checkButton, .deleteButton {
+    margin-left: 10px; /* Utilisation d'une unité relative pour une mise en page flexible */
+}
